@@ -4,6 +4,7 @@ import "./style.css";
 
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
+import { right } from "@popperjs/core";
 
 // Created Arrays
 window.onload = function() {
@@ -23,7 +24,6 @@ window.onload = function() {
     "Q",
     "K",
     "A"
-    // const activeSuits = suits[randomIndex]
   ];
 
   // Function to generate a random suit
@@ -46,19 +46,35 @@ window.onload = function() {
 
     const chosenSuit = getRandomSuit();
 
-    const suitElementTop = document.createElement("h1"); // Use span for smaller size
+    const suitElementTop = document.createElement("p"); // Use span for smaller size
     suitElementTop.classList.add("suit-corner-top"); // Class for styling (optional)
     suitElementTop.textContent = chosenSuit;
     card.appendChild(suitElementTop);
 
-    const suitElementBottom = document.createElement("h1");
+    // const suitLocation = document.querySelector(suitElementTop);
+    // suitLocation.style.position = "relative";
+    // suitLocation.style.left = "50px";
+
+    const valueElement = document.createElement("h2");
+    valueElement.textContent = getRandomValue();
+    valueElement.classList.add("my-auto");
+
+    card.appendChild(valueElement);
+
+    const suitElementBottom = document.createElement("p");
     suitElementBottom.classList.add("suit-corner-bottom", "inverted"); // Add "inverted" class
     suitElementBottom.textContent = chosenSuit; // Use the same chosenSuit
     card.appendChild(suitElementBottom);
 
-    const valueElement = document.createElement("h2");
-    valueElement.textContent = getRandomValue();
-    card.appendChild(valueElement);
+    if (chosenSuit === "♥" || chosenSuit === "♦") {
+      suitElementBottom.style.color = "red";
+      suitElementTop.style.color = "red";
+      valueElement.style.color = "red";
+    } else {
+      suitElementBottom.style.color = "black";
+      suitElementTop.style.color = "black";
+      valueElement.style.color = "black";
+    }
 
     cardContainer.innerHTML = ""; // Clear any previous card
     cardContainer.appendChild(card);
@@ -66,8 +82,6 @@ window.onload = function() {
 
   // Generate and display a card on page load
   displayCard();
-
-  // You can optionally add an event listener to regenerate the card on other events (e.g., button click)
 
   console.log("Hello Rigo from the console!");
 };

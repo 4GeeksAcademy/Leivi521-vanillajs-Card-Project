@@ -19,10 +19,10 @@ window.onload = function() {
     "8",
     "9",
     "10",
-    "Jack",
-    "Queen",
-    "King",
-    "Ace"
+    "J",
+    "Q",
+    "K",
+    "A"
     // const activeSuits = suits[randomIndex]
   ];
 

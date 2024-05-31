@@ -8,7 +8,7 @@ import "./assets/img/4geeks.ico";
 // Created Arrays
 window.onload = function() {
   // Define the possible suits and card values
-  const suits = ["Hearts", "Spades", "Clubs", "Diamonds"];
+  const suits = ["♥", "♠", "♣", "♦"]; // Use a single array for both corners
   const values = [
     "2",
     "3",
@@ -23,6 +23,7 @@ window.onload = function() {
     "Queen",
     "King",
     "Ace"
+    // const activeSuits = suits[randomIndex]
   ];
 
   // Function to generate a random suit
@@ -43,9 +44,17 @@ window.onload = function() {
     const card = document.createElement("div");
     card.id = "card";
 
-    const suitElement = document.createElement("p");
-    suitElement.textContent = getRandomSuit();
-    card.appendChild(suitElement);
+    const chosenSuit = getRandomSuit();
+
+    const suitElementTop = document.createElement("h1"); // Use span for smaller size
+    suitElementTop.classList.add("suit-corner-top"); // Class for styling (optional)
+    suitElementTop.textContent = chosenSuit;
+    card.appendChild(suitElementTop);
+
+    const suitElementBottom = document.createElement("h1");
+    suitElementBottom.classList.add("suit-corner-bottom", "inverted"); // Add "inverted" class
+    suitElementBottom.textContent = chosenSuit; // Use the same chosenSuit
+    card.appendChild(suitElementBottom);
 
     const valueElement = document.createElement("h2");
     valueElement.textContent = getRandomValue();

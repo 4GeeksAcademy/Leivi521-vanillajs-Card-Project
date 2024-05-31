@@ -5,11 +5,11 @@
 }
 
 #card {
-  width: 200px;
-  height: 300px;
+  width: 400px;
+  height: 600px;
   margin: 20px auto;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -25,4 +25,15 @@
 #card p {
   font-size: 20px;
   margin: 10px 0;
+}
+.inverted {
+  /* Apply filters or transformations to invert the suit symbol (e.g., filter: invert(1);) */
+}
+
+.card-value {
+  font-size: 50px; /* Adjust font size for the value element */
+}
+
+#suitElementBottom {
+  font-size: 50px;
 }
